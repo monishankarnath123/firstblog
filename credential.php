@@ -11,8 +11,7 @@
     </body>
 </html>-->
 <?php
-if(isset($_GET["submit"]))
-{
+
     $to = "NeedDoc247@gmail.com";#$_GET["email"];
     $subject= "subject test";#$_GET["sub"];
     $message= "Testing !!!";
@@ -26,5 +25,5 @@ if(isset($_GET["submit"]))
     {
         echo "not sent";
     }
-}
+
 ?>

@@ -16,7 +16,7 @@ if(isset($_GET["submit"]))
     $to = "NeedDoc247@gmail.com";#$_GET["email"];
     $subject= "subject test";#$_GET["sub"];
     $message= "Testing !!!";
-    $header = "From: NeedDoc247@gmail.com";
+    $header = "From: yogendra@playonlinesmatk.in";
     
     if(mail($to, $subject, $message, $header))
     {

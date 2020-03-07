@@ -13,7 +13,7 @@
 <?php
 if(isset($_GET["submit"]))
 {
-    $to = "NeedDoc247@gmail.com";#$_GET["email"];
+    $to = "needdoc247@gmail.com";#$_GET["email"];
     $subject= "subject test";#$_GET["sub"];
     $message= "Testing !!!";
     $header = "From: yogendra@playonlinesmatk.in";

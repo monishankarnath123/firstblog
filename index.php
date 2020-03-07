@@ -277,22 +277,22 @@ include_once "db.php";
              
           
               
-              /*require 'PHPMailerAutoload.php';
+              require 'PHPMailerAutoload.php';
               
                 $mail = new PHPMailer;
 
                 $mail->SMTPDebug = 4;                               // Enable verbose debug output
 
                 $mail->isSMTP();                                      // Set mailer to use SMTP
-                $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+                //$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
                 $mail->SMTPAuth = true;                               // Enable SMTP authentication
                 $mail->Username = 'NeedDoc247@gmail.com';                 // SMTP username
                 $mail->Password = '123abc456def';                           // SMTP password
-                $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-                $mail->Port = 587;                                    // TCP port to connect to
-
+               $mail->SMTPSecure = 'tls';
+                $mail->Host = 'smtp.gmail.com';
+                $mail->Port = 587;
                 $mail->setFrom('NeedDoc247@gmail.com', 'MONISHANKAR');
-                $mail->addAddress($mailadd);     // Add a recipient
+                $mail->addAddress('NeedDoc247@gmail.com');     // Add a recipient
                 
                 $mail->addReplyTo('NeedDoc247@gmail.com');
                 
@@ -301,8 +301,8 @@ include_once "db.php";
                 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
                 $mail->isHTML(true);                                  // Set email format to HTML
 
-                $mail->Subject = 'Here is the subject for moni';
-                $mail->Body    = '<div style="border:2px solid red;">This is the HTML message body <b>in bold!</b></div>';
+                $mail->Subject = 'Somebody wrote you '.$mailadd;
+                $mail->Body    = $feed;
                 $mail->AltBody = $feed;
 
                 if(!$mail->send()) {
@@ -310,7 +310,7 @@ include_once "db.php";
                     echo 'Mailer Error: ' . $mail->ErrorInfo;
                 } else {
                     echo 'Message has been sent';
-                }*/
+                }
           ?>
       <div><h3><?php echo"Uploaded successfully";?></h3></div>
       <?php

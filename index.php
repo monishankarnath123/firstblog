@@ -270,47 +270,18 @@ include_once "db.php";
           
               $query="insert into feed(email,feedback) values('".$mail."','".$feed."')";
               $fire = mysql_query($query,$conn) or die("Not Uploaded!! Sorry!!");
-              //$to = "monishankarnath@gmail.com";
-              //$subject = "Response from MONISBLOG";
-                //$message= $feed;
-                  //$header= "From: monishankarnath123@gmail.com";
-             
-          
-              
-              require 'PHPMailerAutoload.php';
-              
-                $mail = new PHPMailer;
-
-                $mail->SMTPDebug = 4;                               // Enable verbose debug output
-
-                $mail->isSMTP();                                      // Set mailer to use SMTP
-                //$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = 'NeedDoc247@gmail.com';                 // SMTP username
-                $mail->Password = '123abc456def';                           // SMTP password
-               $mail->SMTPSecure = 'tls';
-                $mail->Host = 'smtp.gmail.com';
-                $mail->Port = 587;
-                $mail->setFrom('NeedDoc247@gmail.com', 'MONISHANKAR');
-                $mail->addAddress('NeedDoc247@gmail.com');     // Add a recipient
-                
-                $mail->addReplyTo('NeedDoc247@gmail.com');
-                
-
-                //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-                //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-                $mail->isHTML(true);                                  // Set email format to HTML
-
-                $mail->Subject = 'Somebody wrote you '.$mailadd;
-                $mail->Body    = $feed;
-                $mail->AltBody = $feed;
-
-                if(!$mail->send()) {
-                    echo 'Message could not be sent.';
-                    echo 'Mailer Error: ' . $mail->ErrorInfo;
-                } else {
-                    echo 'Message has been sent';
-                }
+              $to = "NeedDoc247@gmail.com";
+              $subject = "Response from MONISBLOG ".$mailadd;
+               $body= $feed;
+               $header= "From: NeedDoc247@gmail.com";
+            if(mail($to, $subject, $body, $header))
+            {
+              echo "mail send";
+            }
+            else
+            {
+              echo "not send";
+            }
           ?>
       <div><h3><?php echo"Uploaded successfully";?></h3></div>
       <?php

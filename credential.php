@@ -12,10 +12,10 @@
 </html>-->
 <?php
 
-    $to = 'NeedDoc247@gmail.com'; //$_GET["email"];
+    $to = 'needdoc247@gmail.com'; //$_GET["email"];
     $subject= "subject test"; //$_GET["sub"];
     $message= "Testing !!!";
-    $headers = 'From: NeedDoc247@gmail.com';
+    $headers = 'From: needdoc247@gmail.com';
     
     if (mail($to, $subject, $message, $headers))
     {

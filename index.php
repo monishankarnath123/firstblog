@@ -22,6 +22,7 @@ include_once "db.php";
 
     <link rel="stylesheet" href="css/style.css">
   </head>
+    
   <body>
   
   <div class="site-wrap">
@@ -54,7 +55,7 @@ include_once "db.php";
             <nav class="site-navigation" role="navigation">
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">Food</a></li>
+                <li><a href="credential.php">Food</a></li>
                 <li><a href="#">Tech</a></li>
                 <li><a href="#">Entertainment</a></li>
                 <li><a href="#">Travel</a></li>
@@ -149,7 +150,9 @@ include_once "db.php";
         </div>
       </div>
     </div>
+      
     
+      
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
@@ -158,7 +161,7 @@ include_once "db.php";
           </div>
           <div class="col-md-5 ml-auto">
             <h2>Learn About Us</h2>
-            <p class="mb-4">Starting with my Father: He owns a Small-Scale Machinery Industry and a good Mechanical Engineer. To know more go to the "Friends & Family" Tab.<br>My Mother: She is a housemaker, But from 2018 I've opened a YouTube Channel named on her name. She assist me with everything and almost most of the content is on her. She cooks new and old recipes and present to the world through this channel. To know more go to the "Friends & Family" Tab.<br>My Brother:Currently he is in class 2. He love Drawing, playing footbal and his favourite toys are of Dinasour Family.To know more go to the "Friends & Family" Tab.<br>And last about Myself: The whole webpage is all about me. So find it and know more interesting stuffs about me&#128527. To know more go to the "Friends & Family" Tab.</p>
+            <p class="mb-4">Starting with my Father: He owns a Small-Scale Machinery Manufacturing Industry and also a good Mechanical Engineer. To know more go to the "Friends & Family" Tab.<br>My Mother: She is a housemaker, But from 2018 I've opened a YouTube Channel named on her name. She assist me with everything and almost most of the content is on her. She cooks new and old recipes and present to the world through this channel. To know more go to the "Friends & Family" Tab.<br>My Brother:Currently he is in class 2. He love Drawing, playing footbal and his favourite toys are of Dinasour Family.To know more go to the "Friends & Family" Tab.<br>And last about Myself: The whole webpage is all about me. So find it and know more interesting stuffs about me&#128527. To know more go to the "Friends & Family" Tab.</p>
             
             <ul class="ul-check list-unstyled success">
               <li>Father: Businessman.</li>
@@ -180,9 +183,9 @@ include_once "db.php";
               <h2>Let Me Know!</h2>
               <p class="mb-5">Let me know how much you like my website. Please enter your valid MailID. And don't forget to mention what you like and what you don't like. Your feedbacks are always welcome. </p>
                               <form action="#">
-                <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email address"> 
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required > 
                   <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
-                <input type="submit" class="btn btn-primary" id="submit" name="submit" value=" Submit! ">
+                <input type="submit" class="btn btn-primary" id="submit" name="submit" value=" Submit! " >
     </form>
             </div>
           </div>
@@ -251,13 +254,67 @@ include_once "db.php";
 <?php 
       if (isset($_GET["submit"]))
       {
-          $mail=$_GET["email"];
-          $feed=$_GET["message"];
-          $query="insert into feed(email,feedback) values('".$mail."','".$feed."')";
-          $fire = mysql_query($query,$conn) or die("Not Uploaded!! Sorry!!");
+        $mail=$_GET["email"];
+             
+            if (!filter_var($mail, FILTER_VALIDATE_EMAIL))
+            { ?>
+      <script>
+          alert("You have entered an invalid email address!");
+      </script>
+      <?php
+            }
+          else
+          {
+              $feed=$_GET["message"];
+              $mailadd=$_GET["email"];
+          
+              $query="insert into feed(email,feedback) values('".$mail."','".$feed."')";
+              $fire = mysql_query($query,$conn) or die("Not Uploaded!! Sorry!!");
+              //$to = "monishankarnath@gmail.com";
+              //$subject = "Response from MONISBLOG";
+                //$message= $feed;
+                  //$header= "From: monishankarnath123@gmail.com";
+             
+          
+              
+              /*require 'PHPMailerAutoload.php';
+              
+                $mail = new PHPMailer;
+
+                $mail->SMTPDebug = 4;                               // Enable verbose debug output
+
+                $mail->isSMTP();                                      // Set mailer to use SMTP
+                $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+                $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                $mail->Username = 'NeedDoc247@gmail.com';                 // SMTP username
+                $mail->Password = '123abc456def';                           // SMTP password
+                $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                $mail->Port = 587;                                    // TCP port to connect to
+
+                $mail->setFrom('NeedDoc247@gmail.com', 'MONISHANKAR');
+                $mail->addAddress($mailadd);     // Add a recipient
+                
+                $mail->addReplyTo('NeedDoc247@gmail.com');
+                
+
+                //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+                //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+                $mail->isHTML(true);                                  // Set email format to HTML
+
+                $mail->Subject = 'Here is the subject for moni';
+                $mail->Body    = '<div style="border:2px solid red;">This is the HTML message body <b>in bold!</b></div>';
+                $mail->AltBody = $feed;
+
+                if(!$mail->send()) {
+                    echo 'Message could not be sent.';
+                    echo 'Mailer Error: ' . $mail->ErrorInfo;
+                } else {
+                    echo 'Message has been sent';
+                }*/
           ?>
       <div><h3><?php echo"Uploaded successfully";?></h3></div>
       <?php
+      }
       }
       ?>
  

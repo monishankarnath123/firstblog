@@ -12,7 +12,7 @@
 </html>-->
 <?php
 
-    $to = 'needdoc247@gmail.com'; //$_GET["email"];
+    $to = 'monishankarnath@gmail.com'; //$_GET["email"];
     $subject= "subject test"; //$_GET["sub"];
     $message= "Testing !!!";
     $headers = 'From: needdoc247@gmail.com';

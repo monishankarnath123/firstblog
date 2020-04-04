@@ -55,8 +55,8 @@ include_once "db.php";
             <nav class="site-navigation" role="navigation">
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block mb-0">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="mail.php">Food</a></li>
-                <li><a href="#">Tech</a></li>
+                <li><a href="#">Food</a></li>
+                <li><a href="tech.php">Tech</a></li>
                 <li><a href="#">Entertainment</a></li>
                 <li><a href="#">Travel</a></li>
                 <li><a href="#">Family & Friends</a></li>
